@@ -1,0 +1,17 @@
+.error-h1 {
+    font-size: 60px;
+}
+
+.svg-icon {
+    height: 500px;
+    width: 500px;
+}
+
+.button {
+    background-color: rgb(71, 161, 230);
+    color: white;
+    padding: 8px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
