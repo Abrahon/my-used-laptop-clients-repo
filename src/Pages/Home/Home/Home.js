@@ -1,4 +1,5 @@
 import React from 'react';
+import Information from '../../Information/Information';
 
 const Home = () => {
     return (
@@ -13,6 +14,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <Information></Information>
+
 
         </div>
     );
