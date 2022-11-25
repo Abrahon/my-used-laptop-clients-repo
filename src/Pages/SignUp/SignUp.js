@@ -1,66 +1,52 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
     const {register,handleSubmit,formState: {errors}} = useForm();
-    // const {createUser, updateUser} = useContext(AuthContext)
-    // const [signUpError, setSignUpError] = useState('');
 
-    // const [createdUserEmail, setCreatedUserEmail] = useState('')
-
-    // const [token] = useToken(createdUserEmail);
-    // const navigate = useNavigate();
-
-    // if(token){
-    //     navigate('/');
-    // }
-  
+     const {createUser, updateUser, signInWithGoogle} = useContext(AuthContext);
+     const [signUpError, setSignUpError] = useState('')
+   
 
     const handleSignUp = (data)=>{
         console.log(data);
-        //  setSignUpError('');
-        // createUser(data.email, data.password)
-        // .then(result=>{
-            // const user = result.user;
-            // console.log(user);
-            // toast('User Created Successfully.')
+        setSignUpError('');
+        createUser(data.email, data.password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+            toast('user created successfully.')
+            // Navigate('/')
             const userInfo = {
-                displayName:data.name
+                displayName: data.name
             }
-            // updateUser(userInfo)
-
-            .then(()=>{
-                saveUser(data.name, data.email);
-            })
-            .catch(err=>console.log(err))
-            
-        // })
-        // .catch(error=>{
-        //     console.log(error)
-        //     // signUpError(error.message);
-        // });
-
-
-    }
-    
-
-    const saveUser = (name,email)=>{
-        const user = {name, email};
-        fetch('http://localhost:5000/users',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
-            },
-            body:JSON.stringify(user)
+            updateUser(userInfo)
+            .then(()=>{})
+            .catch(err=> console.log(err));
         })
-        // .then(res=>res.json())
-        // .then(data=>{
-        //     console.log(data)
-        //     setCreatedUserEmail(email);
-
-        // })
+        .catch(error=>{
+            console.log(error);
+            setSignUpError(error.message)
+        })
+        
     }
+    const handleGoogleSignIn =()=>{
+        signInWithGoogle()
+        .then(result=>{
+            const user = result.user;
+            console.log(user)
+            toast('user created successfully by google.')
+
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+
+    }
+  
 
     return (
         <div className='h-[800px] flex justify-center items-center drop-shadow-2xl'>
@@ -101,18 +87,17 @@ const SignUp = () => {
                             minLength:{value: 6, message: "password must be 6 characters"}
                         })} 
                         
-                          className="input input-bordered w-full max-w-xs"/>
+                          className="input input-bordered w-full max-w-xs mb-5"/>
                           {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
 
                     </div>
                    
-                 
                     <input className='btn btn-accent w-full' value="signup" type="submit" />
-                    {/* {signUpError && <p className='text-red-600'>{signUpError}</p>} */}
+                    {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
                 <p>Already have an account<Link className='text-secondary' to="/login">Please login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>Continue with google</button>
+                <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>Continue with google</button>
             </div>
           </div>
     );

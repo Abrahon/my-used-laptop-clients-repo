@@ -1,0 +1,90 @@
+[
+    {
+        "product_id": "01",
+        "title": "Dell Brand",
+        "img": "https://5.imimg.com/data5/MV/TQ/MY-51253845/dell-6410-i5-old-used-laptop-500x500.jpg",
+        "categoryItem": [
+            {
+                "img": "https://www.binarylogic.com.bd/images/product_image/smalldell-vostro-14-inc-5402-core-i5-11th-gen-14-fhd-laptop.webp",
+                "name": "Portable Dell Laptop, RAM: 36 GB",
+                "sellerName":"Atikul raj",
+                "resale-price": "120.00",
+                "original-price": "200.00",
+                "originalPrice": "150.00",
+                "use":"3 Year",
+                "posted":"25 Nov 2022"
+                
+            },
+                {    
+                "img": "https://i.pinimg.com/originals/f3/07/90/f3079075c5cd8cbea4e6b2d2306cdff5.jpg",
+                "name":  "Dell Inspiron 15 3501",
+                "sellerName":"Rahul",
+                "location":"Mirpur 10 shewra para Dhaka 390",
+                "resalePrice": "100.00",
+                "originalPrice": "150.00",
+                "use":"1 Year",
+                "posted":"25 Nov 2022"
+            }
+        ]
+    },
+    {
+        "product_id": "02",
+        "title": "Asus Brand",
+        "img": "https://m.media-amazon.com/images/I/41rJa+YgrcL.jpg",
+        "resalePrice": "80.00",
+        "originalPrice": "100.00",
+        "categoryItem": [
+            {
+                "img": "https://m.media-amazon.com/images/I/41rJa+YgrcL.jpg",
+                "name": "ASUS E203NAH N4200 Pentium Quad Core 11.6″",
+                "sellerName":"Abrahon",
+              
+                "resale-price": "100.00",
+                "original-price": "100.00",
+                "originalPrice": "150.00",
+                "use":"2.5 Years",
+                "posted":"26 Nov 2022"
+            },
+                {   
+                "img": "https://images-na.ssl-images-amazon.com/images/I/41PFHOZ9fOL.jpg",
+                "name": "ASUS K200 11-Inch Laptop",
+                "sellerName":"Sujon",
+                "location":"Rangpur, Pak-para 578",
+                "resalePrice": "120.00",
+                "originalPrice": "150.00",
+                "use":"2 Years",
+                "posted":"26 Nov 2022"
+            }
+        ]
+    },
+    {
+        "product_id": "03",
+        "title": "HP Laptop",
+        "img": "https://itpalace.com.bd/image/cache/catalog/Products/Laptop/HP%2014-bw077au/hp-14s-01%20itpalace-500x500.jpg",
+       
+        "categoryItem": [
+            {   
+          
+                "img": "https://itpalace.com.bd/image/cache/catalog/Products/Laptop/HP%2014-bw077au/hp-14s-01%20itpalace-500x500.jpg",
+                "name": "Instant food Services",
+                "sellerName":"Sujon",
+                "resale-price": "200.00",
+                "original-price": "250.00",
+                "use" :"1.8 Years",
+                "posted":"27 Nov 2022"
+            },
+            {
+                
+                "img": "https://images-na.ssl-images-amazon.com/images/I/41PFHOZ9fOL.jpg",
+                "name": "ASUS K200 11-Inch Laptop", 
+                "sellerName":"Sujon",
+                "location":"309 Pabna shen para",
+                "resalePrice": "100.00",
+                "original-price": "150.00",
+                "use" :"1.5 Years",
+                "posted":"27 Nov 2022"
+            }
+        ]
+    } 
+ 
+]
