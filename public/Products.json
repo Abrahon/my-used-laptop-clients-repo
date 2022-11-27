@@ -1,6 +1,6 @@
 [
     {
-        "product_id": "01",
+        "categoryId": "01",
         "title": "Dell Brand",
         "img": "https://5.imimg.com/data5/MV/TQ/MY-51253845/dell-6410-i5-old-used-laptop-500x500.jpg",
         "categoryItem": [
@@ -28,11 +28,9 @@
         ]
     },
     {
-        "product_id": "02",
+        "categoryId": "02",
         "title": "Asus Brand",
         "img": "https://m.media-amazon.com/images/I/41rJa+YgrcL.jpg",
-        "resalePrice": "80.00",
-        "originalPrice": "100.00",
         "categoryItem": [
             {
                 "img": "https://m.media-amazon.com/images/I/41rJa+YgrcL.jpg",
@@ -58,7 +56,7 @@
         ]
     },
     {
-        "product_id": "03",
+        "categoryId": "03",
         "title": "HP Laptop",
         "img": "https://itpalace.com.bd/image/cache/catalog/Products/Laptop/HP%2014-bw077au/hp-14s-01%20itpalace-500x500.jpg",
        
