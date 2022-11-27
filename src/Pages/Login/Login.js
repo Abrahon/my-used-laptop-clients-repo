@@ -8,39 +8,28 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
+    const location = useLocation();
+    const Navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
 
 
 
-    // const handleLogin = data =>{
-    //     console.log(data);
-    //     setLoginError('');
-    //     signIn(data.email, data.password)
-    //     .then(result=>{
-    //         const user = result.user;
-    //         console.log(user);
-    //     })
-    //     .catch(error=>{
-    //         console.log(error.message)
-    //         setLoginError(error.message)
-    //     });
-
-
-    // }
     const handleLogin = data => {
-        //console.log(data);
+        console.log(data);
         setLoginError('');
         console.log(data)
         signIn(data.email, data.password)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-                setLoginUserEmail(data.email)
-
-            })
-            .catch(error => {
-                console.log(error.message)
-                setLoginError(error.message);
-            });
+       .then(result=>{
+        const user = result.user;
+        console.log(user)
+        setLoginUserEmail(data.email)
+         
+       })
+       .catch(error =>{
+        console.log(error.message)
+        setLoginError(error.message);
+       });
 
     }
 
@@ -58,10 +47,10 @@ const Login = () => {
                             <span className="label-text">Email</span>
 
                         </label>
-                        <input type="text"
-                            {...("email", {
-                                required: "Email address is required"
-                            })}
+                        <input type="text" 
+                         {...register("email",{
+                            required:"Email address is required"
+                        })}
 
                             className="input input-bordered w-full max-w-xs" />
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}

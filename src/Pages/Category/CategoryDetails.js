@@ -1,28 +1,34 @@
-import React from 'react';
+
 import { useLoaderData } from 'react-router-dom';
 
-const CategoryDetails = () => {
 
-    // const {id, img, name, sellerName, resalePrice, originalPrice, use, posted} = products;
-    // const category =useLoaderData();
+
+const CategoryDetails = ({product,setProduct}) => {
+    console.log(product)
+
+    const {id, img, name, sellerName, resalePrice, originalPrice, use, posted} = product;
+    const category =useLoaderData();
 
 
     return (
         <div>
-        <h1>This category rote</h1>
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-                <img src='' alt="Shoes" className="rounded-xl" />
+        <div className="card w-96 bg-base-100 shadow-2xl">
+            <figure className="px-3 pt-3">
+                <img src={img} alt="Shoes" className="rounded-xl"/>
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title"></h2>
-                {/* <h4 className="card-title">{sellerName}</h4> */}
-                {/* <p><span>{resalePrice}</span></p>
-                <p><span>{originalPrice}</span></p>
-                <p><span>{use}</span></p>
-                <p><span>{posted}</span></p> */}
-                <div className="card-actions">
-                    <button className="btn btn-primary">Book</button>
+                <h2 className="card-title"> {name}</h2>
+                {/* <FontAwesomeIcon icon="fa-thin fa-check" /> */}
+                <h4 className="card-title">Seller Name: {sellerName}</h4> 
+                 <p><span>Resale Price : ${resalePrice}</span></p>
+                <p><span>Original Price : ${originalPrice}</span></p>
+                <p><span>Uses : {use}</span></p>
+                <p><span>Post : {posted}</span></p>
+                <div className="card-actions justify-center">
+                    <label htmlFor="booking-modal"
+                     className="btn btn btn-primary"
+                     onClick={()=>setProduct(product)}
+                     >Book Now</label>
 
                 </div>
             </div>
