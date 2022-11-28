@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
@@ -9,22 +9,25 @@ const SignUp = () => {
 
      const {createUser, updateUser, signInWithGoogle} = useContext(AuthContext);
      const [signUpError, setSignUpError] = useState('')
+     const navigate = useNavigate();
+
    
 
     const handleSignUp = (data)=>{
-        console.log(data);
         setSignUpError('');
         createUser(data.email, data.password)
         .then(result=>{
             const user = result.user;
             console.log(user);
-            toast('user created successfully.')
+            toast.success('user created successfully.')
             // Navigate('/')
             const userInfo = {
                 displayName: data.name
             }
             updateUser(userInfo)
-            .then(()=>{})
+            .then(()=>{
+               saveUser(data.name, data.email);
+            })
             .catch(err=> console.log(err));
         })
         .catch(error=>{
@@ -34,17 +37,36 @@ const SignUp = () => {
         
     }
     const handleGoogleSignIn =()=>{
-        signInWithGoogle()
+        signInWithGoogle() 
         .then(result=>{
             const user = result.user;
             console.log(user)
-            toast('user created successfully by google.')
+            // navigate('/')
+            toast.success('user created successfully by google.')
 
         })
+
         .catch(error=>{
             console.log(error);
         })
 
+    }
+    const saveUser = (name, email)=>{
+        const user = {name, email};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers:{
+                'content-type':'application/json'
+
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            navigate('/');
+
+        })
     }
   
 

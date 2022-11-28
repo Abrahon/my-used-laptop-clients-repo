@@ -9,7 +9,7 @@ const Login = () => {
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
     const location = useLocation();
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
 
@@ -23,6 +23,7 @@ const Login = () => {
        .then(result=>{
         const user = result.user;
         console.log(user)
+        navigate(from, {replace: true});
         setLoginUserEmail(data.email)
          
        })

@@ -2,13 +2,18 @@
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import BookingModal from '../BookingModal/BookingModal';
+import Loading from '../Shared/Loading/Loading';
 import CategoryDetails from './CategoryDetails';
 
 
 const Category = () => {
   const products = useLoaderData();
   // const [products, setProducts] = useState([]);
-  const [product, setProduct] = useState(null);
+  const [product, setProduct, isLoading] = useState(null);
+
+  if(isLoading){
+   return <Loading></Loading>
+  }
 
     
 

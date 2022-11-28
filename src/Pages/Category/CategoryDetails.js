@@ -6,7 +6,7 @@ import { useLoaderData } from 'react-router-dom';
 const CategoryDetails = ({product,setProduct}) => {
     console.log(product)
 
-    const {id, img, name, sellerName, resalePrice, originalPrice, use, posted} = product;
+    const {id, img,brandName, sellerName, resalePrice, originalPrice, use, posted} = product;
     const category =useLoaderData();
 
 
@@ -17,7 +17,7 @@ const CategoryDetails = ({product,setProduct}) => {
                 <img src={img} alt="Shoes" className="rounded-xl"/>
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title"> {name}</h2>
+                <h2 className="card-title"> {brandName}</h2>
                 {/* <FontAwesomeIcon icon="fa-thin fa-check" /> */}
                 <h4 className="card-title">Seller Name: {sellerName}</h4> 
                  <p><span>Resale Price : ${resalePrice}</span></p>

@@ -21,7 +21,6 @@ root.render(
       <AuthProvider>
         <App />
       </AuthProvider>
-
     </QueryClientProvider>
   </React.StrictMode>
 );
