@@ -5,8 +5,8 @@ import useAdmin from '../hooks/useAdmin';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
-    const {user} =useContext(AuthContext);
-    const [isAdmin] = useAdmin(user?.email);
+    const { user } = useContext(AuthContext);
+    // const [isAdmin] = useAdmin(user?.email);
     return (
         <div>
             <Navbar></Navbar>
@@ -14,26 +14,27 @@ const DashboardLayout = () => {
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
 
-             <Outlet></Outlet>
-                   
+                    <Outlet></Outlet>
+
 
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-                     <li><Link to='/dashboard'>Add A Product</Link></li>
-                     <li><Link to='/dashboard/allsellerallbuyer'>admin</Link></li>
-                        <li><Link to='/dashboard'>All Seller</Link></li>  
+
+                        <li><Link to='/dashboard/myproduct'>My Orders</Link></li>
+                        <li><Link to='/dashboard/myorders'>My Products</Link></li>
                         <li><Link to='/dashboard'>All Buyer</Link></li>
-                        
-                        {
-                            isAdmin && <>
-                        
+                        <li><Link to='/dashboard/addproduct'>Add A Product</Link></li>
+                        <li><Link to='/dashboard/allsellerallbuyer'>admin</Link></li>
+
+                        {/* {
+                           
 
 
                             </>
-                        }
+                        } */}
 
                     </ul>
 

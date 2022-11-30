@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const BookingModal = ({product,setProduct,refetch}) => {
-    const {brandName,originalPrice}=  product;
+    const {brandName,originalPrice,img}=  product;
     const {user} = useContext(AuthContext);
 
     const handleBooking = event=> {
@@ -28,7 +28,7 @@ const BookingModal = ({product,setProduct,refetch}) => {
 
         
         fetch('http://localhost:5000/bookings', {
-            
+
            method: 'POST',
            headers: {
             'content-type': 'application/json'
@@ -64,10 +64,11 @@ const BookingModal = ({product,setProduct,refetch}) => {
 
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 top-5'>
                     {/* <input type="text" name='price' defaultValue={originalPrice} disabled placeholder="Price" className="input w-full input-bordered" /> */}
-                    <input type="text" name='name' defaultValue={user?.displayName} disabled placeholder="User Name" className="input w-full input-bordered" />
+                    <img src={img} alt="" />
+                    <input type="text" name='name' defaultValue={user?.displayName} disabled placeholder="User Name" className="input w-full input-bordered " />
                     <input type="email" name='email' defaultValue={user?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />
-                    <input type="text" name='phone' placeholder="Phone No" className="input w-full input-bordered" />
-                    <input type="text" name='location' placeholder="Meeting Location" className="input w-full input-bordered" />
+                    <input type="text" name='phone' placeholder="Phone No" className="input w-full input-bordered  " required/>
+                    <input type="text" name='location' placeholder="Meeting Location" className="input w-full input-bordered" required/>
                     <br/>
                     <input className='bt btn-accent p-2 rounded w-full  text-2xl' type="submit" value ="Submit" />
                     </form>

@@ -89,11 +89,11 @@ const Login = () => {
                 <p>New Sell bazar link <Link className='text-secondary' to="/signup">Create New account</Link></p>
                 <div className="divider">OR</div>
                 <div className="dropdown mb-10">
-                    <label tabIndex={0} className="btn m-1 text-center">Click</label>
-                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    {/* <label tabIndex={0} className="btn m-1 text-center">Click</label> */}
+                    {/* <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li><a>Seller</a></li>
                         <li><a>Buyer</a></li>
-                    </ul>
+                    </ul> */}
                 </div>
                 <button className='btn btn-outline w-full'>Continue with google</button>
             </div>

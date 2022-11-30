@@ -20,11 +20,9 @@ const SignUp = () => {
      }
 
 
-   
-
     const handleSignUp = (data)=>{
         setSignUpError('');
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.role)
         .then(result=>{
             const user = result.user;
             console.log(user);
@@ -35,7 +33,7 @@ const SignUp = () => {
             }
             updateUser(userInfo)
             .then(()=>{
-               saveUser(data.name, data.email);
+               saveUser(data.name, data.email, data.role);
             })
             .catch(err=> console.log(err));
         })
@@ -61,10 +59,11 @@ const SignUp = () => {
         })
 
     }
-    const saveUser = (name, email)=>{
-        const user = {name, email};
+    const saveUser = (name, email,role)=>{
+        const user = {name, email,role};
+        console.log(user)
         fetch('http://localhost:5000/users', {
-            method: 'POST',
+            method:'POST',
             headers:{
                 'content-type':'application/json'
 
@@ -72,12 +71,14 @@ const SignUp = () => {
             body: JSON.stringify(user)
         })
         .then(res=>res.json())
+        
         .then(data=>{
+            //console.log(email)
             setCreatedUserEmail(email);
             console.log(data);
-            navigate('/');
+            // navigate('/');
 
-        })
+        });
     }
    
 
@@ -124,11 +125,30 @@ const SignUp = () => {
                           {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
 
                     </div>
+                     <div className="form-control w-full max-w-xs">
+                        
+                        
+                        
+                     <div className="form-control w-full max-w-xs">
+                        <label className="label"> <span className="label-text text-xl">Select Account Type</span></label>
+                        <select {...register("role")}>
+                            <option value="buyer">buyer</option>
+                            <option value="seller">seller</option>
+
+                        </select>
+                    </div>
+                          {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+
+                    </div>
                    
                     <input className='btn btn-accent w-full' value="signup" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
                 <p>Already have an account<Link className='text-secondary' to="/login">Please login</Link></p>
+                <div className="form-control w-full max-w-xs">
+                <label className="label"> <span className="label-text text-xl">Select Account Type</span></label>
+                  
+                    </div>
                 <div className="divider">OR</div>
                 <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>Continue with google</button>
             </div>
