@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const MyProducts = () => {
     const {user} = useContext(AuthContext);
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://used-laptop-products-server.vercel.app/bookings?email=${user?.email}`;
     
     console.log(url)
     

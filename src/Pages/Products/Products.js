@@ -5,7 +5,7 @@ import ProductCard from './ProductCard';
 const Products = () => {
     const [products, setProducts, isLoading] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/category')
+        fetch('https://used-laptop-products-server.vercel.app/category')
         .then(res=>res.json())
         .then(data =>setProducts(data))
     },[]);

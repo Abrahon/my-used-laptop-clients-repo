@@ -27,7 +27,7 @@ const BookingModal = ({product,setProduct,refetch}) => {
         // setProduct(null)
 
         
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://used-laptop-products-server.vercel.app/bookings', {
 
            method: 'POST',
            headers: {

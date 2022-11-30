@@ -18,7 +18,7 @@ const AddProduct = () => {
 
         queryKey: ['qualities'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/productQuality');
+            const res = await fetch('https://used-laptop-products-server.vercel.app/productQuality');
             const data = await res.json();
             return data;
         }
@@ -50,7 +50,7 @@ const AddProduct = () => {
                     }
                     console.log(laptop)
 
-                    fetch('http://localhost:5000/laptops', {
+                    fetch('https://used-laptop-products-server.vercel.app/laptops', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

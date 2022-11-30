@@ -46,14 +46,15 @@ export const router = createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<PrivateRoute><Category></Category></PrivateRoute>,
-                loader: ({params}) =>fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) =>fetch(`https://used-laptop-products-server.vercel.app/category/${params.id}`)
 
             },
            
             {
                 path:'/*',
                 element:<Error></Error>
-            }
+            },
+           
         ]
 
     },
