@@ -8,8 +8,13 @@ const Information = () => {
                     <h1 className="text-5xl font-bold">Login now!</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div> */}
+                <img src="https://img.freepik.com/premium-photo/boy-kid-use-laptop-computer-learning-technology-relaxing-blanket-natural-outdoors-online-courses-horizontal-poster-design-web-banner-header-copy-space_545934-17319.jpg?w=2000" alt="" />
+
                 <div className="w-96 p-7">
+
                     <div className="card-body">
+                    <h1 className='text-3xl'>contact us</h1>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>

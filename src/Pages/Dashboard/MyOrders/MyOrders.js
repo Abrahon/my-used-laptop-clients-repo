@@ -62,17 +62,18 @@ const MyOrders = () => {
                         <tr>
                             <th></th>
                             <th>image</th>
-                            <th>Name</th>
+                            <th>productName</th>
                             <th>Price</th>
                             <th>Phone</th>
                             <th>Location</th>
                             <th>purses of years</th>
+                            <th>productCondition</th>                            
                             <th>Action</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {  laptops &&
                             laptops.map((laptop, i) => <tr key={laptop._id}>
                                 <th>{i + 1}</th>
                                 <td><div className="avatar">
@@ -85,6 +86,9 @@ const MyOrders = () => {
                                 <td>{laptop.phone}</td>
                                 <td>{laptop.location}</td>
                                 <td>{laptop.pursesYear}</td>
+                                
+                                <td>{laptop.productCondition}</td>
+                                
                                 <td>
                                     <label onClick={() => setDeletingLaptop(laptop)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
 

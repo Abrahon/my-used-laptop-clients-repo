@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const AllSellerAllBuyer = () => {
+    // const[data,setData]=useState('')
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -27,6 +28,11 @@ const AllSellerAllBuyer = () => {
             }
         })
     }
+    const deleteAdmin = id=>{ 
+    //    setData(data.filter(item => item.id !== id));
+    // console.log(deleteAdmin);
+        
+    };
     return (
         <div>
             <h2 className='text-3xl'>AllSeller and buyer</h2>
@@ -48,7 +54,7 @@ const AllSellerAllBuyer = () => {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{ user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
-                            <td><button className='btn btn -sm btn-danger'>Delete</button></td>
+                            <td><button onClick={()=> deleteAdmin(user._id)} className='btn btn -sm btn-danger'>Delete</button></td>
                         </tr>)
 
                        }

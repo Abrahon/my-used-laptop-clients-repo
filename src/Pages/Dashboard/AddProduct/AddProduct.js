@@ -90,7 +90,7 @@ const AddProduct = () => {
                             required: "Name is required"
                         })}
                             className="input input-bordered w-full max-w-xs" />
-                        {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+                        {errors.productName&& <p className='text-red-500'>{errors.productName.message}</p>}
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
@@ -137,6 +137,7 @@ const AddProduct = () => {
                             className="input input-bordered w-full max-w-xs" />
                         {errors.years && <p className='text-red-500'>{errors.years.message}</p>}
                     </div>
+                    
 
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
@@ -145,11 +146,36 @@ const AddProduct = () => {
                         </label>
 
                         <select
-                            {...register('product category')}
+                            {...register('product condition')}
                             className="select input-bordered w-full max-w-xs">
                                 <option value="buyer">excellent</option>
                                 <option value="seller">good</option>
                                 <option value="seller">fair</option>
+
+
+                                {
+                                    qualities.map(quality => <option
+                                        key={quality._id}
+                                        quality={quality}
+                                    >{quality.name}</option>)
+                                }
+
+
+                            </select>
+
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">product category</span>
+
+                        </label>
+
+                        <select
+                            {...register('product condition')}
+                            className="select input-bordered w-full max-w-xs">
+                                <option value="buyer">Dell</option>
+                                <option value="seller">Asus</option>
+                                <option value="seller">Hp</option>
 
 
                                 {

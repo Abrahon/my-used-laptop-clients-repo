@@ -1,10 +1,11 @@
-import { faHourglass1 } from "@fortawesome/free-solid-svg-icons";
+
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from '../../Layout/Main'
 import Blogs from "../../Pages/Blogs/Blogs";
 import Category from "../../Pages/Category/Category";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
+import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellerAllBuyer from "../../Pages/Dashboard/AllSellerAllBuyer/AllSellerAllBuyer";
 
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
@@ -60,28 +61,32 @@ export const router = createBrowserRouter([
         path:'/dashboard',
         element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children:[
-            // {
-            //     path:'/dashboard',
-            //     element: <h1>welcome dashord</h1>
-            // },
+           
             {
                 path:'/dashboard/myproduct',
-                element:<MyProducts></MyProducts>
+                element:<AdminRoute><MyProducts></MyProducts></AdminRoute>
 
             },
             {
                 path:'/dashboard/allsellerallbuyer',
-                element:<AllSellerAllBuyer></AllSellerAllBuyer>,
+                element:<AdminRoute><AllSellerAllBuyer></AllSellerAllBuyer></AdminRoute>
+                
+            },
+            {
+                path:'/dashboard/allbuyers',
+                element:<AllBuyers></AllBuyers>
                 // element:<AdminRoute></AdminRoute>
             },
             {
                 path:'/dashboard/addproduct',
-                element:<AddProduct></AddProduct>
+                
+                element:<AdminRoute><AddProduct></AddProduct></AdminRoute>
             },
             {
                 path:'/dashboard/myorders',
-                element:<MyOrders></MyOrders>
+                element:<AdminRoute><MyOrders></MyOrders></AdminRoute>
             },
+           
         ]
     },
 ])

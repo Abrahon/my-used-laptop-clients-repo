@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const MyProducts = () => {
     const {user} = useContext(AuthContext);
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    
     console.log(url)
     
     const {data: bookings = [] } = useQuery({
@@ -21,6 +23,7 @@ const MyProducts = () => {
             return data;
         }
     })
+   
     return (
         <div>
             <div className="overflow-x-auto">
@@ -48,7 +51,7 @@ const MyProducts = () => {
             </div>
         </div></td>
         <td>{booking.title}</td>
-        <td>{booking.price}</td>
+        <td>{booking.location}</td>
         <td>{booking.phone}</td>
         <td>{booking.pay}</td>
         {/* <td>{booking.payment}</td> */}

@@ -1,3 +1,15 @@
+-html#1: I created a used product laptop website there is Three item category.
+-html#2: example: Dell, Asus, Hp; 
+-html#3: After that I will created a Dashboard route  where many items route such that.
+-html#4: And then where add the product seller and and buyer can be buy that second hand product.
+-html#5:and then extra button such that awhishlet and advertisement. 
+-html#6:Add admin private route and private route
+-html#7 add loader ,spinner and toast
+
+-html# admin email:abrahon@gmail.com
+-html# admin password:872491
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
